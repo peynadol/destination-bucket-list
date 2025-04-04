@@ -24,7 +24,7 @@ notesTextArea.addEventListener("keydown", (e) => {
 // fetch destinations from backend
 async function fetchDestinations() {
 	try {
-		const response = await fetch("http://localhost:3000/api/destinations")
+		const response = await fetch("/api/destinations")
 		if (!response.ok) throw new Error("Failed to fetch")
 		const data = await response.json()
 		return data
@@ -37,7 +37,7 @@ async function fetchDestinations() {
 
 // send new destination to server
 async function sendDestination(destination) {
-	await fetch("http://localhost:3000/api/destinations", {
+	await fetch("/api/destinations", {
 		method: "POST",
 		body: JSON.stringify(destination),
 
@@ -71,7 +71,7 @@ form.addEventListener("submit", (e) => {
 // send edit to server
 async function sendEditDestination(id, updatedData) {
 	try {
-		const response = await fetch(`http://localhost:3000/api/destinations/${id}`, {
+		const response = await fetch(`/api/destinations/${id}`, {
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(updatedData)
@@ -115,7 +115,7 @@ document.getElementById('cancel-edit').addEventListener('click', () => {
 // delete destination handler
 const deleteDestination = async (id) => {
 	try {
-		const response = await fetch(`http://localhost:3000/api/destinations/${id}`, {
+		const response = await fetch(`/api/destinations/${id}`, {
 			method: "DELETE",
 		})
 
@@ -128,7 +128,7 @@ const deleteDestination = async (id) => {
 
 const editDestination = async (id) => {
 	try {
-		const response = await fetch(`http://localhost:3000/api/destinations/${id}`)
+		const response = await fetch(`/api/destinations/${id}`)
 		if (!response.ok) throw new Error("Failed to fetch destination")
 		const { data: destination } = await response.json()
 
