@@ -1,0 +1,248 @@
+/* Base Layout */
+body {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+	font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+	background: #f8f9fa;
+	color: #333;
+	line-height: 1.6;
+}
+
+h1 {
+	margin-bottom: 1.5rem;
+	color: #2d3748;
+	font-weight: 700;
+}
+
+#destination-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 24px;
+	margin-top: 30px;
+}
+
+/* Card Styling */
+.destination-card {
+	background: white;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+	padding: 24px;
+	transition: box-shadow 0.2s ease;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #eaeaea;
+	height: auto;
+	min-height: 200px;
+	position: relative;
+}
+
+.destination-card:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.destination-card h4 {
+	margin: 0 0 16px 0;
+	color: #1a202c;
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+
+/* Map Link */
+.destination-card a {
+	display: inline-flex;
+	align-items: center;
+	margin: 12px 0;
+	color: #4299e1;
+	text-decoration: none;
+	font-size: 0.95rem;
+	font-weight: 500;
+}
+
+.destination-card a:hover {
+	color: #2b6cb0;
+}
+
+/* Notes section */
+.destination-card p {
+	color: #4a5568;
+	font-size: 0.95rem;
+	margin: 0 0 16px 0;
+	flex-grow: 1;
+}
+
+/* Form Styling */
+#add-destination-form {
+	background: white;
+	padding: 28px;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+	margin: 0 auto 36px;
+	width: 90%;
+	max-width: 500px;
+	border: 1px solid #eaeaea;
+}
+
+#add-destination-form h2 {
+	margin-top: 0;
+	margin-bottom: 20px;
+	color: #1a202c;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+input,
+textarea {
+	width: 100%;
+	padding: 12px;
+	margin-bottom: 18px;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	box-sizing: border-box;
+	font-family: inherit;
+	font-size: 0.95rem;
+	transition: border-color 0.2s ease;
+	background-color: #f9fafb;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+	border-color: #4299e1;
+	background-color: white;
+}
+
+/* Regular Buttons */
+button[type="submit"],
+#add-destination-form button {
+	background: #4299e1;
+	color: white;
+	border: none;
+	padding: 12px 18px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background 0.2s ease;
+	font-weight: 500;
+	font-size: 0.95rem;
+}
+
+button[type="submit"]:hover,
+#add-destination-form button:hover {
+	background: #3182ce;
+}
+
+/* Special reset for ALL buttons in destination card */
+.destination-card button {
+	all: unset;
+	/* Reset all properties */
+	cursor: pointer;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin: 5px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+	border-radius: 8px;
+	transition: background-color 0.2s;
+}
+
+/* Icon Buttons */
+.destination-card .buttons {
+	display: flex;
+	flex-direction: row;
+	/* Ensure horizontal layout */
+	margin-top: auto;
+	padding-top: 16px;
+	justify-content: center;
+	gap: 10px;
+	/* Space between buttons */
+}
+
+/* If buttons are direct children of the card without a container */
+.destination-card>button {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.destination-card>button:last-child {
+	margin-right: 0;
+}
+
+/* Specific styling for delete button */
+.destination-card .delete-btn {
+	color: #e53e3e;
+	background-color: transparent;
+}
+
+.destination-card .delete-btn:hover {
+	background-color: rgba(229, 62, 62, 0.1);
+}
+
+/* Specific styling for edit button */
+.destination-card .edit-btn {
+	color: #4299e1;
+	background-color: transparent;
+}
+
+.destination-card .edit-btn:hover {
+	background-color: rgba(66, 153, 225, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+	#destination-list {
+		grid-template-columns: 1fr;
+	}
+
+	body {
+		padding: 16px;
+	}
+
+	#add-destination-form {
+		padding: 20px;
+	}
+}
+
+/* Edit form buttons container */
+#edit-destination-form .form-actions {
+	display: flex;
+	gap: 12px;
+	margin-top: 20px;
+}
+
+/* Save Changes button (primary) */
+#edit-destination-form button[type="submit"] {
+	background: #4299e1;
+	color: white;
+	padding: 12px 18px;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	font-weight: 500;
+	flex: 1;
+	transition: background 0.2s ease;
+}
+
+/* Cancel button (secondary) */
+#cancel-edit {
+	background: white;
+	color: #4a5568;
+	padding: 12px 18px;
+	border-radius: 8px;
+	border: 1px solid #e2e8f0;
+	cursor: pointer;
+	font-weight: 500;
+	flex: 1;
+	transition: all 0.2s ease;
+}
+
+/* Hover states */
+#edit-destination-form button[type="submit"]:hover {
+	background: #3182ce;
+}
+
+#cancel-edit:hover {
+	background: #f7fafc;
+	border-color: #cbd5e0;
+}

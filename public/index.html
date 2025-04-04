@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<script src="main.js" defer></script>
+	<title>Destination Bucket List</title>
+
+</head>
+
+<body>
+	<h1>Travel Bucket List</h1>
+
+	<!-- Add Destination Form -->
+	<form id="add-destination-form">
+		<h3>Add New Destination</h3>
+		<input type="text" id="location" placeholder="Name (e.g., Paris)" required>
+		<input type="text" id="country" placeholder="Location (e.g., France)" required>
+		<textarea id="notes" placeholder="Notes (optional)"></textarea>
+		<button type="submit">Save Destination</button>
+		<p class="form-hint">💡 Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (or <kbd>Cmd</kbd> + <kbd>Enter</kbd>)
+			to submit</p>
+	</form>
+
+	<!-- Edit Destination Form-->
+	<div id="edit-form-container" style="display: none;">
+		<form id="edit-destination-form">
+			<input type="hidden" id="edit-id">
+			<input type="text" id="edit-location" placeholder="Location" required>
+			<input type="text" id="edit-country" placeholder="Country" required>
+			<textarea id="edit-notes" placeholder="Notes"></textarea>
+			<button type="submit">Save Changes</button>
+			<button type="button" id="cancel-edit">Cancel</button>
+		</form>
+	</div>
+
+	<!-- Destination List -->
+	<div id="destination-list">
+		<h3>Your Destinations</h3>
+		<!-- Cards will be added here by JS -->
+	</div>
+</body>
+
+</html>
