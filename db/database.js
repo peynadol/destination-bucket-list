@@ -1,4 +1,4 @@
-cnst Database = require("better-sqlite3")
+const Database = require("better-sqlite3")
 
 // connect to db or create if doesn't exist
 const db = new Database(process.env.DATABASE_PATH || './db.sqlite');
